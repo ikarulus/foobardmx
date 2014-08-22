@@ -1,0 +1,85 @@
+input.color {
+    -webkit-appearance: slider-vertical;
+    width: 100px;
+    border: none;
+    margin: 5px;
+    margin-bottom: 25px;
+}
+
+input.red::-webkit-slider-thumb {
+    background: #FF0000;
+}
+
+input.green::-webkit-slider-thumb {
+    background: #00FF00;
+}
+
+input.blue::-webkit-slider-thumb {
+    background: #0000FF;
+}
+
+
+input.red::-moz-range-thumb {
+    background: #FF0000;
+}
+
+input.green::-moz-range-thumb {
+    background: #00FF00;
+}
+
+input.blue::-moz-range-thumb {
+    background: #0000FF;
+}
+
+input[type=range]{
+    /* fix for FF unable to apply focus style bug  */
+    background-color: #F5F5F5;
+}
+
+input[type=range]::-moz-range-track {
+    height: 5px;
+    background: #C0C0C0;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 5px;
+    background: #C0C0C0;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+button.preset {
+    margin: 5px;
+}

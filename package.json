@@ -1,0 +1,21 @@
+{
+	"name": "opendmx",
+	"version": "0.0.1",
+	"author": "Felix Favre <gnomus@gnomus.de>",
+	"description": "Enttec OpenDMX Library",
+	"url": "https://github.com/gnomus/node-opendmx",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gnomus/node-opendmx.git"
+	},
+	"dependencies": {
+		"onecolor": "latest",
+		"express": "latest",
+		"socket.io": "latest",
+		"jade": "latest"
+	},
+	"licenses": [{
+		"name": "MIT",
+		"url": "http://www.opensource.org/licenses/mit-license.php"
+	}]
+}
