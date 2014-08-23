@@ -8,18 +8,18 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var lights = [
-  ledspot.create("Sfk", "Spot Fe/Kü", 1, dmx),  // Fenster/Küche
-  ledspot.create("Sft", "Spot Fe/Ta", 8, dmx),  // Fenster/Tafel
-  ledspot.create("Stt", "Spot Tü/Ta", 22, dmx),  // Tür/Tafel
-  ledspot.create("Stk", "Spot Tü/Kü", 15, dmx),  // Tür/Küche
-  ledbar.create("Bfk", "Bar Fe/Kü", 51, dmx), // Fenster/Küche
-  ledbar.create("Bft", "Bar Fe/Ta", 29, dmx), // Fenster/Tafel
-  ledbar.create("Btt", "Bar Tü/Ta", 40, dmx), // Tür/Tafel
-  ledbar.create("Btk", "Bar Tü/Kü", 62, dmx), // Tür/Küche
-];
+var lights = {
+  "Sfk": ledspot.create("Sfk", "Spot Fe/Kü", 1, dmx),  // Fenster/Küche
+  "Sft": ledspot.create("Sft", "Spot Fe/Ta", 8, dmx),  // Fenster/Tafel
+  "Stt": ledspot.create("Stt", "Spot Tü/Ta", 22, dmx),  // Tür/Tafel
+  "Stk": ledspot.create("Stk", "Spot Tü/Kü", 15, dmx),  // Tür/Küche
+  "Bfk": ledbar.create("Bfk", "Bar Fe/Kü", 51, dmx), // Fenster/Küche
+  "Bft": ledbar.create("Bft", "Bar Fe/Ta", 29, dmx), // Fenster/Tafel
+  "Btt": ledbar.create("Btt", "Bar Tü/Ta", 40, dmx), // Tür/Tafel
+  "Btk": ledbar.create("Btk", "Bar Tü/Kü", 62, dmx), // Tür/Küche
+};
 
-lights.forEach(function(e) {
+for (var e in lights) {
   e.on();
   setTimeout(function() {
     e.setColor([255, 0, 0]);
@@ -55,7 +55,7 @@ lights.forEach(function(e) {
   setTimeout(function() {
     e.off();
   }, 5200);
-});
+};
 
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/static'));
