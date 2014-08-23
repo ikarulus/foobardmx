@@ -1,7 +1,7 @@
 var dmx = require('./dmx.js')('/dev/dmx0');
-//var color = require('onecolor');
+var color = require('onecolor');
 var ledbar = require('./ledbar.js');
-var ledspot = require('./spot.js');
+var ledspot = require('./ledspot.js');
 
 var express = require('express');
 var app = express();
