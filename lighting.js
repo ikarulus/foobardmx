@@ -71,7 +71,6 @@ app.get('/', function(req, res) {
 
 io.on('connection', function(socket) {
   socket.on('color', function(data) {
-    console.log(data);
     if (data.id == 'all') {
       lights.forEach(function(e) {
         e.setColor(data.values);
@@ -144,4 +143,5 @@ io.on('connection', function(socket) {
 });
 
 
-server.listen(8080);
+server.listen(80);
+console.log("READY");
