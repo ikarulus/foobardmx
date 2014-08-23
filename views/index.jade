@@ -22,9 +22,9 @@ block body
       h2 Set all lights
       div.well
         //div.wheel
-        input.color.red(type='range',min='0',max='255',value='0',light='all')
-        input#all.color.green(type='range',min='0',max='255',value='0',light='all')
-        input#all.color.blue(type='range',min='0',max='255',value='0',light='all')
+        input.all.color.red(type='range',min='0',max='255',value='0',light='all')
+        input.all.color.green(type='range',min='0',max='255',value='0',light='all')
+        input.all.color.blue(type='range',min='0',max='255',value='0',light='all')
         div.clearfix
   div.row
     each light in  pageData.l
