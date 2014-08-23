@@ -19,7 +19,8 @@ var lights = {
   "Btk": ledbar.create("Btk", "Bar Tü/Kü", 62, dmx), // Tür/Küche
 };
 
-for (var e in lights) {
+for (var k in lights) {
+  e = lights[k];
   e.on();
   setTimeout(function() {
     e.setColor([255, 0, 0]);
