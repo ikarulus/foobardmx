@@ -2,7 +2,9 @@ extends layout
 
 block body
   div.row
-    h1 Welcome to z9 Lightning Control
+    div.col-md-12.col-sm-12
+      h1 Welcome to z9 Lighting Control
+  div.row
     div.col-md-9.col-sm-8
       h2 Presets
       div.well
@@ -11,21 +13,21 @@ block body
         button.preset.btn.btn-default(value='2') All white
         button.preset.btn.btn-default(value='3') Colorful 1
         button.preset.btn.btn-default(value='4') Colorful 2
-        button.preset.btn.btn-default(value='5') Culorful 3
+        button.preset.btn.btn-default(value='5') Colorful 3
         button.preset.btn.btn-default(value='6') Strobe on
         button.preset.btn.btn-default(value='7') Strobe off
         p
-        p Want another Preset? Ask gnomus :)
+        p Want another Preset? Ask gnomus or create a #[a(href="https://github.com/gnomus/foobardmx/")] Pull Request] :)
     div.col-md-3.col-sm-4
       h2 Set all lights
       div.well
         //div.wheel
-        input.color.red(type='range',min='0',max='255',value='0',light='all')
-        input#all.color.green(type='range',min='0',max='255',value='0',light='all')
-        input#all.color.blue(type='range',min='0',max='255',value='0',light='all')
+        input.all.color.red(type='range',min='0',max='255',value='0',light='all')
+        input.all.color.green(type='range',min='0',max='255',value='0',light='all')
+        input.all.color.blue(type='range',min='0',max='255',value='0',light='all')
         div.clearfix
   div.row
-    each light in  pageData.l
+    each light in pageData.l
       div.col-md-3.col-sm-4.col-xs-6
         h3= light.identifier
         div.well
