@@ -20,7 +20,7 @@ var lights = {
 };
 
 for (var k in lights) {
-  e = lights[k];
+  var e = lights[k];
   e.on();
   setTimeout(function() {
     e.setColor([255, 0, 0]);
