@@ -8,7 +8,7 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var lights = {
+var lights_by_name = {
   "Sfk": ledspot.create("Sfk", "Spot Fe/Kü", 1, dmx),  // Fenster/Küche
   "Sft": ledspot.create("Sft", "Spot Fe/Ta", 8, dmx),  // Fenster/Tafel
   "Stt": ledspot.create("Stt", "Spot Tü/Ta", 22, dmx),  // Tür/Tafel
@@ -18,9 +18,18 @@ var lights = {
   "Btt": ledbar.create("Btt", "Bar Tü/Ta", 40, dmx), // Tür/Tafel
   "Btk": ledbar.create("Btk", "Bar Tü/Kü", 62, dmx), // Tür/Küche
 };
+var lights = [
+  lights_by_name["Sfk"],
+  lights_by_name["Sft"],
+  lights_by_name["Stt"],
+  lights_by_name["Stk"],
+  lights_by_name["Bfk"],
+  lights_by_name["Bft"],
+  lights_by_name["Btt"],
+  lights_by_name["Btk"],
+];
 
-for (var k in lights) {
-  var e = lights[k];
+lights.forEach(function(e) {
   e.on();
   setTimeout(function() {
     e.setColor([255, 0, 0]);
@@ -56,7 +65,7 @@ for (var k in lights) {
   setTimeout(function() {
     e.off();
   }, 5200);
-};
+});
 
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/static'));
@@ -77,7 +86,7 @@ io.on('connection', function(socket) {
         e.setColor(data.values);
       });
     } else {
-      lights[data.id].setColor(data.values);
+      lights_by_name[data.id].setColor(data.values);
     }
   });
 
@@ -99,34 +108,34 @@ io.on('connection', function(socket) {
         });
         break;
       case 3:
-        lights["Sfk"].setColor([255, 0, 0]);
-        lights["Sft"].setColor([255, 255, 0]);
-        lights["Stk"].setColor([0, 255, 0]);
-        lights["Stt"].setColor([0, 0, 255]);
-        lights["Bft"].setColor([255, 255, 0]);
-        lights["Btt"].setColor([255, 0, 255]);
-        lights["Bfk"].setColor([0, 255, 255]);
-        lights["Btk"].setColor([255, 0, 255]);
+        lights_by_name["Sfk"].setColor([255, 0, 0]);
+        lights_by_name["Sft"].setColor([255, 255, 0]);
+        lights_by_name["Stk"].setColor([0, 255, 0]);
+        lights_by_name["Stt"].setColor([0, 0, 255]);
+        lights_by_name["Bft"].setColor([255, 255, 0]);
+        lights_by_name["Btt"].setColor([255, 0, 255]);
+        lights_by_name["Bfk"].setColor([0, 255, 255]);
+        lights_by_name["Btk"].setColor([255, 0, 255]);
         break;
       case 4:
-        lights["Btk"].setColor([255, 0, 0]);
-        lights["Bfk"].setColor([255, 0, 255]);
-        lights["Btt"].setColor([0, 255, 0]);
-        lights["Bft"].setColor([0, 0, 255]);
-        lights["Stt"].setColor([255, 255, 0]);
-        lights["Stk"].setColor([255, 0, 255]);
-        lights["Sft"].setColor([0, 255, 255]);
-        lights["Sfk"].setColor([255, 0, 255]);
+        lights_by_name["Btk"].setColor([255, 0, 0]);
+        lights_by_name["Bfk"].setColor([255, 0, 255]);
+        lights_by_name["Btt"].setColor([0, 255, 0]);
+        lights_by_name["Bft"].setColor([0, 0, 255]);
+        lights_by_name["Stt"].setColor([255, 255, 0]);
+        lights_by_name["Stk"].setColor([255, 0, 255]);
+        lights_by_name["Sft"].setColor([0, 255, 255]);
+        lights_by_name["Sfk"].setColor([255, 0, 255]);
         break;
       case 5:
-        lights["Bft"].setColor([255, 0, 0]);
-        lights["Btt"].setColor([255, 255, 0]);
-        lights["Bfk"].setColor([0, 255, 0]);
-        lights["Btk"].setColor([0, 0, 255]);
-        lights["Sfk"].setColor([255, 255, 0]);
-        lights["Sft"].setColor([255, 0, 255]);
-        lights["Stk"].setColor([0, 255, 255]);
-        lights["Stt"].setColor([255, 0, 255]);
+        lights_by_name["Bft"].setColor([255, 0, 0]);
+        lights_by_name["Btt"].setColor([255, 255, 0]);
+        lights_by_name["Bfk"].setColor([0, 255, 0]);
+        lights_by_name["Btk"].setColor([0, 0, 255]);
+        lights_by_name["Sfk"].setColor([255, 255, 0]);
+        lights_by_name["Sft"].setColor([255, 0, 255]);
+        lights_by_name["Stk"].setColor([0, 255, 255]);
+        lights_by_name["Stt"].setColor([255, 0, 255]);
         break;
       case 6:
         lights.forEach(function(e) {
