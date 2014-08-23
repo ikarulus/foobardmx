@@ -9,14 +9,14 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 var lights = [
-  ledspot.create(0, "Spot 1", 1, dmx),
-  ledspot.create(1, "Spot 2", 8, dmx),
-  ledspot.create(2, "Spot 3", 15, dmx),
-  ledspot.create(3, "Spot 4", 22, dmx),
-  ledbar.create(4, "Bar 1", 29, dmx),
-  ledbar.create(5, "Bar 2", 40, dmx),
-  ledbar.create(6, "Bar 3", 51, dmx),
-  ledbar.create(7, "Bar 4", 62, dmx),
+  ledspot.create(0, "Spot Fe/Kü", 1, dmx),  // Fenster/Küche
+  ledspot.create(1, "Spot Fe/Ta", 8, dmx),  // Fenster/Tafel
+  ledspot.create(2, "Spot Tü/Ta", 22, dmx),  // Tür/Tafel
+  ledspot.create(3, "Spot Tü/Kü", 15, dmx),  // Tür/Küche
+  ledbar.create(4, "Bar Fe/Kü", 51, dmx), // Fenster/Küche
+  ledbar.create(5, "Bar Fe/Ta", 29, dmx), // Fenster/Tafel
+  ledbar.create(6, "Bar Tü/Ta", 40, dmx), // Tür/Tafel
+  ledbar.create(7, "Bar Tü/Kü", 62, dmx), // Tür/Küche
 ];
 
 lights.forEach(function(e) {
