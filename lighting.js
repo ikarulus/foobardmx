@@ -55,7 +55,7 @@ for (var e in lights) {
   setTimeout(function() {
     e.off();
   }, 5200);
-});
+};
 
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/static'));
