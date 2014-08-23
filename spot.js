@@ -7,11 +7,9 @@ ledspot.create = function(id, identifier, address, dmx) {
   spot.isOn = false;
   spot.identifier = identifier;
 
-
   spot.updateInterval = setInterval(function() {
     dmx.setChannels(address, spot.buffer);
   }, 20);
-
 
   spot.on = function() {
     spot.buffer[6] = 255;
@@ -31,15 +29,15 @@ ledspot.create = function(id, identifier, address, dmx) {
     } else {
       console.log("[Error] Wrong amount of Channels");
     }
-
   }
 
   spot.setStrobe = function(time) {
     if (time == 0) {
       clearInterval(spot.strobeInterval);
     } else {
-      if (spot.strobeInterval)
+      if (spot.strobeInterval) {
         clearInterval(spot.strobeInterval);
+      }
       spot.strobeInterval = setInterval(function() {
         if (spot.isOn) {
           spot.off();
@@ -49,7 +47,6 @@ ledspot.create = function(id, identifier, address, dmx) {
       }, time);
     }
   }
-
 
   return spot;
 }
