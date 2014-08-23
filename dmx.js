@@ -3,7 +3,7 @@ var fs = require('fs');
 module.exports = function(filename) {
   var controller = {};
 
-  controller.device = fs.createWriteStream('/dev/dmx0');
+  controller.device = fs.createWriteStream(filename);
 
   controller.buffer = Buffer(513);
 
