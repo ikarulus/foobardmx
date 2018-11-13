@@ -147,6 +147,16 @@ io.on('connection', function(socket) {
         lights_by_name["Sft"].setColor([0, 0, 0]);
         lights_by_name["Stt"].setColor([0, 0, 0]);
         break;
+      case 7:
+        lights_by_name["Bft"].setColor([127, 0, 0]);
+        lights_by_name["Btt"].setColor([0, 0, 127]);
+        lights_by_name["Bfk"].setColor([127, 0, 0]);
+        lights_by_name["Btk"].setColor([0, 0, 127]);
+        lights_by_name["Sfk"].setColor([127, 0, 0]);
+        lights_by_name["Stk"].setColor([0, 0, 127]);
+        lights_by_name["Sft"].setColor([127, 0, 0]);
+        lights_by_name["Stt"].setColor([0, 0, 0]);
+        break;
       case 998:
         lights.forEach(function(e) {
           e.setStrobe(20);
